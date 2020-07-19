@@ -1,6 +1,14 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
+const dotenv = require("dotenv");
+const connectDB = require("./db");
+
+// Load env vars
+dotenv.config({ path: "./config/config.env" });
+
+// call connectDB() to connect to DB
+connectDB();
 
 const app = express();
 
