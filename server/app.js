@@ -3,6 +3,7 @@ const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -21,6 +22,9 @@ mongoose.connection.once("open", () => {
 
 // Express Server
 const app = express();
+
+// Allow cross-origin requests
+app.use(cors());
 
 // GraphQL
 app.use(
