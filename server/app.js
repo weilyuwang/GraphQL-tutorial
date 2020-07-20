@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
 
-// connect to MongoDB
+// MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -19,8 +19,10 @@ mongoose.connection.once("open", () => {
   console.log(`MongoDB Connected: ${mongoose.connection.host}`);
 });
 
+// Express Server
 const app = express();
 
+// GraphQL
 app.use(
   "/graphql",
   graphqlHTTP({
