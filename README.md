@@ -1,6 +1,8 @@
 # GraphQL tutorial
 
-#### Server
+---
+
+### Server
 
 cd into /server folder:  
 `cd server`
