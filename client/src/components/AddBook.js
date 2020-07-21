@@ -11,6 +11,12 @@ const AddBook = () => {
   const [genre, setGenre] = useState("");
   const [authorId, setAuthorId] = useState("");
 
+  const clearForm = () => {
+    setName("");
+    setGenre("");
+    setAuthorId("");
+  };
+
   const submitForm = (e) => {
     e.preventDefault();
     console.log(name, genre, authorId);
@@ -22,24 +28,34 @@ const AddBook = () => {
         authorId,
       },
     });
+
+    clearForm();
   };
 
   return (
     <form id="add-book" onSubmit={submitForm}>
       <div className="field">
         <label>Book name:</label>
-        <input type="text" onChange={(e) => setName(e.target.value)} />
+        <input
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
       </div>
 
       <div className="field">
         <label>Genre:</label>
-        <input type="text" onChange={(e) => setGenre(e.target.value)} />
+        <input
+          type="text"
+          onChange={(e) => setGenre(e.target.value)}
+          value={genre}
+        />
       </div>
 
       <div className="field">
         <label>Author:</label>
-        <select onChange={(e) => setAuthorId(e.target.value)}>
-          <option>Select author</option>
+        <select onChange={(e) => setAuthorId(e.target.value)} value={authorId}>
+          <option value="">Select author</option>
           {loading ? (
             <option disabled>Loading Authors</option>
           ) : (
