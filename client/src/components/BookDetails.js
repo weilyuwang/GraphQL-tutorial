@@ -24,16 +24,11 @@ const BookDetails = ({ bookId }) => {
         </div>
       );
     } else {
-      return <div>No book selected</div>;
+      return <div>No book selected yet</div>;
     }
   };
 
-  return (
-    <div id="book-details">
-      <p>Ouput Book Details Here</p>
-      {displayBookDetails(data)}
-    </div>
-  );
+  return <div id="book-details">{displayBookDetails(data)}</div>;
 };
 
 export default BookDetails;
