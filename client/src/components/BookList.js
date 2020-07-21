@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { getBooksQuery } from "../queries/queries";
+import { GET_BOOKS } from "../queries/queries";
 
 const BookList = () => {
-  const { loading, data } = useQuery(getBooksQuery);
+  const { loading, data } = useQuery(GET_BOOKS);
 
   return (
     <div>
