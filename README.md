@@ -6,7 +6,7 @@
 
 create config/config.env file in server directory     
 and add the MONGO_URI env var:      
-`MONGO_URI = mongodb+srv://USER:PASSWORD@cluster0.v8jyz.mongodb.net/graphql?retryWrites=true`
+`e.g. MONGO_URI = mongodb+srv://USER:PASSWORD@cluster0.v8jyz.mongodb.net/graphql?retryWrites=true`
 
 cd into /server folder:  
 `cd server`
