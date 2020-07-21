@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_AUTHORS, ADD_BOOK } from "../queries/queries";
+import { GET_AUTHORS, GET_BOOKS, ADD_BOOK } from "../queries/queries";
 
 const AddBook = () => {
   const { loading, data } = useQuery(GET_AUTHORS);
@@ -27,6 +27,7 @@ const AddBook = () => {
         genre,
         authorId,
       },
+      refetchQueries: [{ query: GET_BOOKS }],
     });
 
     clearForm();
@@ -55,7 +56,7 @@ const AddBook = () => {
       <div className="field">
         <label>Author:</label>
         <select onChange={(e) => setAuthorId(e.target.value)} value={authorId}>
-          <option value="">Select author</option>
+          <option>Select author</option>
           {loading ? (
             <option disabled>Loading Authors</option>
           ) : (
